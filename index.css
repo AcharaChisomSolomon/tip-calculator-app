@@ -92,12 +92,16 @@ input {
     border: none;
     background-color: #f3f9fa;
     color: var(--input-tetiary-color);
-    height: 3rem;
+    height: 2.7rem;
     font-size: var(--secondary-font-size);
     width: 100%;
 }
 input:focus {
     outline: none;
+}
+.focused,
+#custom-tip:focus {
+    border: 2px solid #26c2ae;
 }
 
 
@@ -119,9 +123,17 @@ input:focus {
     background-color: var(--input-tetiary-color);
     cursor: pointer;
 }
-.tip-button:hover {
+.clicked {
     background-color: var(--output-tetiary-color);
     color: var(--output-bg);
+}
+.tip-button:hover {
+    background-color: #9fe8df;
+    color: var(--output-bg);
+}
+.tip-button:active,
+.reset:active {
+    outline: 3px solid var(--output-tetiary-color);
 }
 #custom-tip {
     color: var(--output-bg);
@@ -164,6 +176,10 @@ input:focus {
     text-transform: uppercase;
     border-radius: var(--btn-radius);
     margin-top: 1rem;
+    cursor: pointer;
+}
+.reset:hover {
+    background-color: #9fe8df;
 }
 .reset:disabled {
     opacity: var(--opacity);
@@ -172,7 +188,7 @@ input:focus {
 }
 
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1300px) {
     body {
         display: flex;
         flex-direction: column;
@@ -199,6 +215,9 @@ input:focus {
     }
     .input {
         padding: 1rem;
+    }
+    .output {
+        margin: 0;
     }
     .price {
         font-size: var(--desktop-output-size);
