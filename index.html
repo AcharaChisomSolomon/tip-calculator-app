@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./index.css">
+  <script src="./index.js" defer></script>
 </head>
 <body>
 
@@ -45,7 +46,10 @@
         </div>
       </div>
       <div class="people">
-        <label for="people">Number of People</label>
+        <div class="error-label">
+          <label for="people">Number of People</label>
+          <p id="error-text">Can't be zero</p>
+        </div>
         <div class="people-input">
           <img src="./images/icon-person.svg" alt="person icon">
           <input type="text" id="people" placeholder="0">
@@ -59,16 +63,16 @@
           <p class="person-title">Tip Amount</p>
           <p class="output-person">/ person</p>
         </div>
-        <p class="price">$0.00</p>
+        <p class="price" id="tip-per-person">$0.00</p>
       </div>
       <div class="total">
         <div>
           <p class="person-title">Total</p>
           <p class="output-person">/ person</p>
         </div>
-        <p class="price">$0.00</p>
+        <p class="price" id="total-per-person">$0.00</p>
       </div>
-      <button class="reset">Reset</button>
+      <button id="reset-btn" class="reset" disabled>Reset</button>
     </section>
 
   </main>
@@ -76,5 +80,8 @@
 </body>
 </html>
 
-<!-- .clicked => for tip btns
-.focused => for focused divs -->
+<!-- 
+.clicked => for tip btns
+.focused => for focused divs 
+.error => for people input
+-->

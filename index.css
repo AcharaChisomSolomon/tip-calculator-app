@@ -67,8 +67,6 @@ main {
 label {
     display: block;
     color: var(--input-primary-color);
-}
-label {
     font-size: var(--primary-font-size);
 }
 .bill-input, .people-input {
@@ -102,6 +100,18 @@ input:focus {
 .focused,
 #custom-tip:focus {
     border: 2px solid #26c2ae;
+}
+.error-label {
+    display: flex;
+    justify-content: space-between;
+}
+#error-text {
+    display: none;
+    color: #e17457;
+
+}
+.error {
+    border: 2px solid #e17052;
 }
 
 
