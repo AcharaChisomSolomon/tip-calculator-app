@@ -30,9 +30,6 @@ const inputChecker = el => {
 
         if (!twoDecimalPlaces.test(this.value)) {
             this.value = this.value.length > 1 ? this.value.slice(0, this.value.length - 1) : '';
-            console.log(this.value)
-        } else {
-            console.log(this.value)
         }
     });
 }
@@ -51,10 +48,8 @@ tipInput.addEventListener('input', function () {
     if (!(tipInput.value === '' || tipInput === '0')) {
         resetAllTipButtons()
         tipPercentage = Number(tipInput.value) || 0
-        console.log(tipPercentage)
     } else {
         tipPercentage = 0
-        console.log(tipPercentage)
     }
     populateTipAndTotal()
 })
@@ -63,7 +58,6 @@ tipButtons.forEach(btn => {
     btn.addEventListener('click', function () {
         resetAllTipButtons()
         tipPercentage = Number(btn.textContent.slice(0, btn.textContent.length - 1)) || 0
-        console.log(tipPercentage)
         btn.classList.add('clicked')
         tipInput.value = ''
         populateTipAndTotal()
@@ -100,6 +94,7 @@ resetBtn.addEventListener('click', function () {
 
     tipPercentage = 0
     totalBill = 0
+    populateTipAndTotal()
 })
 
 const setInputListenerOnBill = el => {
