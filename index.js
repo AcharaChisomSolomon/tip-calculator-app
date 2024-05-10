@@ -25,11 +25,34 @@ const populateTipAndTotal = () => {
 }
 
 const inputChecker = el => {
+    let billAmount = 0
+    let peopleAmount = 0
+    let tipAmount = 0
+
     el.addEventListener('input', function() {
         const twoDecimalPlaces = /^\d*\.?\d{0,2}$/;
+        const onlyNumbers = /^[0-9]*$/
 
-        if (!twoDecimalPlaces.test(this.value)) {
-            this.value = this.value.length > 1 ? this.value.slice(0, this.value.length - 1) : '';
+        if (this.id === 'bill' || this.id === 'custom-tip') {
+            if (this.value.match(twoDecimalPlaces)) {
+                if (this.id === 'bill') {
+                    billAmount = Number(this.value)
+                } else {
+                    tipAmount = Number(this.value)
+                }
+            } else {
+                if (this.id === 'bill') {
+                    this.value = billAmount
+                } else {
+                    this.value = tipAmount
+                }
+            }
+        } else {
+            if (this.value.match(onlyNumbers)) {
+                peopleAmount = Number(this.value)
+            } else {
+                this.value = peopleAmount
+            }
         }
     });
 }
